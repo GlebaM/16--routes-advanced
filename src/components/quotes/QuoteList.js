@@ -18,15 +18,12 @@ const QuoteList = (props) => {
   const match = useRouteMatch();
   const history = useHistory();
   const location = useLocation();
-  console.log(match);
 
   const queryParams = new URLSearchParams(location.search);
 
   const isSortingDescending = queryParams.get("sort") === "desc";
 
   const sortedQuotes = sortQuotes(props.quotes, isSortingDescending);
-
-  console.log(isSortingDescending);
 
   const changeSortingHandler = (e) => {
     // history.push(

@@ -12,7 +12,6 @@ const Comments = () => {
   const [isAddingComment, setIsAddingComment] = useState(false);
   const params = useParams();
   const { quoteId } = params;
-  console.log(quoteId);
 
   const { sendRequest, status, data: loadedComments } = useHttp(getAllComments);
 
@@ -26,11 +25,9 @@ const Comments = () => {
 
   const addedCommentHandler = useCallback(() => {
     sendRequest(quoteId);
-    console.log("NADA");
   }, [sendRequest, quoteId]);
 
   let comments;
-  console.log(status);
 
   if (status === "pending") {
     comments = (
@@ -40,7 +37,6 @@ const Comments = () => {
     );
   }
 
-  console.log(loadedComments);
   if (status === "completed" && loadedComments && loadedComments.length > 0) {
     comments = <CommentsList comments={loadedComments} />;
   }

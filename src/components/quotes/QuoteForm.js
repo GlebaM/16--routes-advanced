@@ -28,7 +28,6 @@ const QuoteForm = (props) => {
 
   const formFocusedHandler = (e) => {
     setIsEntered(true);
-    console.log("Focused");
   };
 
   return (

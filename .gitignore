@@ -1,2 +1,7 @@
 package-lock.json
+firebase.json
+.firebaserc
 node_modules
+.firebase
+build
+

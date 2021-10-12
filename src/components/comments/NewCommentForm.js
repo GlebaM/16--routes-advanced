@@ -24,18 +24,17 @@ const NewCommentForm = (props) => {
     const enteredText = commentTextRef.current.value;
 
     // optional: Could validate here
-
+    if (enteredText === "") return;
     // send comment to server
-    sendRequest({ commentData: { text: enteredText }, quoteId: props.quoteId });
+    sendRequest({
+      commentData: { text: enteredText.trim() },
+      quoteId: props.quoteId,
+    });
+    commentTextRef.current.value = "";
   };
 
   return (
     <form className={classes.form} onSubmit={submitFormHandler}>
-      {status === "pending" && (
-        <div className="centered">
-          <LoadingSpinner />
-        </div>
-      )}
       <div className={classes.control} onSubmit={submitFormHandler}>
         <label htmlFor="comment">Your Comment</label>
         <textarea id="comment" rows="5" ref={commentTextRef}></textarea>

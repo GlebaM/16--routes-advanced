@@ -2,6 +2,19 @@
   box-sizing: border-box;
 }
 
+:root {
+  --color-primary: rgba(33, 76, 204, 0.938);
+  --color-primary-hover: rgba(62, 101, 219, 0.938);
+  --color-primary-light-1: rgba(163, 178, 223, 0.938);
+  --color-primary-light-2: #c1d1d1;
+  --color-primary-light-3: rgba(195, 208, 248, 0.938);
+  /* --color-primary: teal;
+  --color-primary-hover: #11acac;
+  --color-primary-light-1: #a1e0e0;
+  --color-primary-light-2: #c1d1d1;
+  --color-primary-light-3: #cbf8f8; */
+}
+
 body {
   font-family: sans-serif;
   margin: 0;
@@ -24,7 +37,7 @@ body {
 
 .btn {
   text-decoration: none;
-  background-color: teal;
+  background-color: var(--color-primary);
   color: white;
   border-radius: 4px;
   padding: 0.75rem 1.5rem;
@@ -34,14 +47,14 @@ body {
 
 .btn:hover,
 .btn:active {
-  background-color: #11acac;
-  border-color: #11acac;
+  background-color: var(--color-primary-hover);
+  border-color: var(--color-primary-hover);
 }
 
 .btn--flat {
   cursor: pointer;
   font: inherit;
-  color: teal;
+  color: var(--color-primary);
   border: none;
   background-color: none;
   text-decoration: none;
@@ -51,6 +64,6 @@ body {
 
 .btn--flat:hover,
 .btn--flat:active {
-  background-color: teal;
+  background-color: var(--color-primary);
   color: white;
 }

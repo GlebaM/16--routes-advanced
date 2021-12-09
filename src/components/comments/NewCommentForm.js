@@ -3,6 +3,7 @@ import { useRef, useEffect } from "react";
 import useHttp from "../../hooks/use-http";
 import { addComment } from "../../lib/api";
 import classes from "./NewCommentForm.module.css";
+import { CSSTransition } from "react-transition-group";
 
 const NewCommentForm = (props) => {
   const commentTextRef = useRef();
@@ -33,15 +34,17 @@ const NewCommentForm = (props) => {
   };
 
   return (
-    <form className={classes.form} onSubmit={submitFormHandler}>
-      <div className={classes.control} onSubmit={submitFormHandler}>
-        <label htmlFor="comment">Your Comment</label>
-        <textarea id="comment" rows="5" ref={commentTextRef}></textarea>
-      </div>
-      <div className={classes.actions}>
-        <button className="btn">Add Comment</button>
-      </div>
-    </form>
+    <CSSTransition in timeout={900} unmountOnExit classNames="fade" appear>
+      <form className={classes.form} onSubmit={submitFormHandler}>
+        <div className={classes.control} onSubmit={submitFormHandler}>
+          <label htmlFor="comment">Your Comment</label>
+          <textarea id="comment" rows="5" ref={commentTextRef}></textarea>
+        </div>
+        <div className={classes.actions}>
+          <button className="btn">Add Comment</button>
+        </div>
+      </form>
+    </CSSTransition>
   );
 };
 

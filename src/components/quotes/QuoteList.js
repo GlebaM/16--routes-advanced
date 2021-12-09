@@ -1,21 +1,24 @@
-import { Fragment } from "react";
-import { useHistory, useLocation, useRouteMatch } from "react-router-dom";
+import { Fragment, useRef } from "react";
+import { useHistory, useLocation } from "react-router-dom";
 
 import QuoteItem from "./QuoteItem";
+import AnimatedItem from "../animations/AnimatedItem";
 import classes from "./QuoteList.module.css";
 
 const sortQuotes = (quotes, descending) => {
-  return quotes.sort((quoteA, quoteB) => {
+  return quotes.sort((firstQuote, nextQuote) => {
     if (!descending) {
-      return quoteA.id > quoteB.id ? 1 : -1;
+      return firstQuote.text < nextQuote.text ? 1 : -1;
     } else {
-      return quoteA.id < quoteB.id ? 1 : -1;
+      return firstQuote.text > nextQuote.text ? 1 : -1;
     }
   });
 };
 
 const QuoteList = (props) => {
-  const match = useRouteMatch();
+  console.log(props.quotes);
+
+  // const match = useRouteMatch();
   const history = useHistory();
   const location = useLocation();
 
@@ -23,18 +26,17 @@ const QuoteList = (props) => {
 
   const isSortingDescending = queryParams.get("sort") === "desc";
 
-  const sortedQuotes = sortQuotes(props.quotes, isSortingDescending);
+  const sortedQuotes = sortQuotes(props.quotes, !isSortingDescending);
 
   const changeSortingHandler = (e) => {
-    // history.push(
-    //   `${location.pathname}?sort=${isSortingDescending ? "asc" : "desc"}`
-    // );
     history.push({
       pathname: location.pathname,
       search: `?sort=${isSortingDescending ? "asc" : "desc"}`,
     });
   };
 
+  let count = 0;
+  console.log(count);
   return (
     <Fragment>
       <div className={classes.sorting}>
@@ -43,14 +45,22 @@ const QuoteList = (props) => {
         </button>
       </div>
       <ul className={classes.list}>
-        {sortedQuotes.map((quote) => (
-          <QuoteItem
-            key={quote.id}
-            id={quote.id}
-            author={quote.author}
-            text={quote.text}
-          />
-        ))}
+        {sortedQuotes.map((quote) => {
+          count += 100;
+
+          return (
+            <AnimatedItem key={quote.id}>
+              <QuoteItem
+                key={quote.id}
+                // eslint-disable-next-line react-hooks/rules-of-hooks
+                ref={useRef()}
+                id={quote.id}
+                author={quote.author}
+                text={quote.text}
+              />
+            </AnimatedItem>
+          );
+        })}
       </ul>
     </Fragment>
   );

@@ -4,6 +4,7 @@ import LoadingSpinner from "../components/UI/LoadingSpinner";
 import NoQuotesFound from "../components/quotes/NoQuotesFound";
 import useHttp from "../hooks/use-http";
 import { getAllQuotes } from "../lib/api";
+import { CSSTransition } from "react-transition-group";
 
 const AllQuotes = () => {
   const {
@@ -35,8 +36,12 @@ const AllQuotes = () => {
 
   return (
     <Fragment>
-      <h1>All Quotes Page!</h1>
-      <QuoteList quotes={loadedQuotes} />
+      <CSSTransition in timeout={900} unmountOnExit classNames="fade" appear>
+        <h1>All Quotes Page!</h1>
+      </CSSTransition>
+      <CSSTransition in timeout={900} unmountOnExit classNames="fade" appear>
+        <QuoteList quotes={loadedQuotes} />
+      </CSSTransition>
     </Fragment>
   );
 };

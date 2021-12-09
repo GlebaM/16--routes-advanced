@@ -1,20 +1,27 @@
+import React, { forwardRef } from "react";
 import { Link } from "react-router-dom";
 import classes from "./QuoteItem.module.css";
 
-const QuoteItem = (props) => {
+const QuoteItem = forwardRef(({ id, text, author, delay }, ref) => {
+  const inputRef = ref;
+  console.log(inputRef.current);
   return (
-    <li className={classes.item}>
+    <li
+      className={classes.item}
+      // style={{ transitionDelay: delay }}
+      ref={inputRef}
+    >
       <figure>
         <blockquote>
-          <p>{props.text}</p>
+          <p>"{text}"</p>
         </blockquote>
-        <figcaption>{props.author}</figcaption>
+        <figcaption>{author}</figcaption>
       </figure>
-      <Link to={`/quotes/${props.id}`} className="btn">
+      <Link to={`/quotes/${id}`} className="btn">
         View Fullscreen
       </Link>
     </li>
   );
-};
+});
 
 export default QuoteItem;

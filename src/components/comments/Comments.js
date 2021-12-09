@@ -7,6 +7,7 @@ import useHttp from "../../hooks/use-http";
 import { getAllComments } from "../../lib/api";
 import LoadingSpinner from "../UI/LoadingSpinner";
 import CommentsList from "./CommentsList";
+import { CSSTransition } from "react-transition-group";
 
 const Comments = () => {
   const [isAddingComment, setIsAddingComment] = useState(false);
@@ -46,19 +47,24 @@ const Comments = () => {
   }
 
   return (
-    <section className={classes.comments}>
-      <h2>User Comments</h2>
-      {!isAddingComment && (
-        <button className="btn" onClick={startAddCommentHandler}>
-          Add a Comment
-        </button>
-      )}
-      {isAddingComment && (
-        <NewCommentForm quoteId={quoteId} onAddComment={addedCommentHandler} />
-      )}
-      {comments}
-      {/* {status === "completed" && <CommentsList comments={loadedComments} />} */}
-    </section>
+    <CSSTransition in timeout={900} unmountOnExit classNames="fade" appear>
+      <section className={classes.comments}>
+        <h2>User Comments</h2>
+        {!isAddingComment && (
+          <button className="btn" onClick={startAddCommentHandler}>
+            Add a Comment
+          </button>
+        )}
+        {isAddingComment && (
+          <NewCommentForm
+            quoteId={quoteId}
+            onAddComment={addedCommentHandler}
+          />
+        )}
+        {comments}
+        {/* {status === "completed" && <CommentsList comments={loadedComments} />} */}
+      </section>
+    </CSSTransition>
   );
 };
 

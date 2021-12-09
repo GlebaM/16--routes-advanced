@@ -3,6 +3,7 @@ import { Route, Switch, Redirect } from "react-router-dom";
 import Layout from "./components/layout/Layout";
 
 import LoadingSpinner from "./components/UI/LoadingSpinner";
+import { CSSTransition } from "react-transition-group";
 
 const AllQuotes = React.lazy(() => import("./pages/AllQuotes"));
 const QuoteDetails = React.lazy(() => import("./pages/QuoteDetails"));
@@ -30,7 +31,15 @@ function App() {
             <QuoteDetails />
           </Route>
           <Route path="/new-quote">
-            <NewQuote />
+            <CSSTransition
+              in
+              timeout={900}
+              unmountOnExit
+              classNames="fade"
+              appear
+            >
+              <NewQuote />
+            </CSSTransition>
           </Route>
           <Route path="*">
             <NotFound />

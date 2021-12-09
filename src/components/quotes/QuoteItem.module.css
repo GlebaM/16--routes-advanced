@@ -7,6 +7,7 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   border-radius: 6px;
   background-color: var(--color-primary-light-3);
+  gap: 1rem;
 }
 
 .item:last-of-type {
@@ -34,4 +35,17 @@
 .item figcaption {
   font-style: italic;
   color: #566d6d;
+}
+
+@media screen and (max-width: 600px) {
+  .item {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .item figure {
+    width: 100%;
+  }
+  .item figure p {
+    text-align: justify;
+  }
 }

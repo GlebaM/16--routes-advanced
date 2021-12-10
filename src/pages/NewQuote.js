@@ -21,7 +21,9 @@ const NewQuote = () => {
 
   return (
     <Fragment>
-      <h1>New Quote Page!</h1>
+      <CSSTransition in timeout={600} unmountOnExit classNames="fade" appear>
+        <h1>New Quote Page!</h1>
+      </CSSTransition>
       <CSSTransition in timeout={600} unmountOnExit classNames="fade" appear>
         <QuoteForm
           isLoading={status === "pending"}

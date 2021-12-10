@@ -39,6 +39,9 @@ const QuoteDetails = () => {
     return <p>No Quote found</p>;
   }
 
+  console.log(match.url);
+  console.log(match.path);
+
   return (
     <CSSTransition in timeout={900} unmountOnExit classNames="fade" appear>
       <div>

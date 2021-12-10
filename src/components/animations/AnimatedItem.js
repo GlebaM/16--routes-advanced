@@ -45,7 +45,9 @@ const AnimatedItem = ({ children }) => {
       });
     }
   }, [boundingBox, prevBoundingBox, children]);
-
+  console.log(prevBoundingBox);
+  console.log(boundingBox);
+  console.log(prevChildren);
   return children;
 };
 

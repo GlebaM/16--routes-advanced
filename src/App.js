@@ -1,9 +1,8 @@
 import React, { Suspense } from "react";
-import { Route, Switch, Redirect } from "react-router-dom";
+import { Route, Redirect, Switch } from "react-router-dom";
 import Layout from "./components/layout/Layout";
 
 import LoadingSpinner from "./components/UI/LoadingSpinner";
-import { CSSTransition } from "react-transition-group";
 
 const AllQuotes = React.lazy(() => import("./pages/AllQuotes"));
 const QuoteDetails = React.lazy(() => import("./pages/QuoteDetails"));
@@ -31,15 +30,7 @@ function App() {
             <QuoteDetails />
           </Route>
           <Route path="/new-quote">
-            <CSSTransition
-              in
-              timeout={900}
-              unmountOnExit
-              classNames="fade"
-              appear
-            >
-              <NewQuote />
-            </CSSTransition>
+            <NewQuote />
           </Route>
           <Route path="*">
             <NotFound />
@@ -51,3 +42,5 @@ function App() {
 }
 
 export default App;
+
+// "react-router-dom": "^n",

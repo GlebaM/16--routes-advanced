@@ -10,7 +10,8 @@ const sortQuotes = (quotes, descending) => {
     if (!descending) {
       return firstQuote.text < nextQuote.text ? 1 : -1;
     } else {
-      return firstQuote.text > nextQuote.text ? 1 : -1;
+      return firstQuote.text.localeCompare(nextQuote.text);
+      // return firstQuote.text > nextQuote.text ? 1 : -1;
     }
   });
 };

@@ -69,26 +69,6 @@ body {
 }
 
 /* fade CSSTransition */
-/* .fade {
-  background-color: aqua;
-  box-sizing: border-box;
-  opacity: 1;
-} */
-
-/* .fade-enter {
-  opacity: 0;
-}
-.fade-enter-active {
-  background-color: blue;
-  transition: all 0.6s ease;
-  opacity: 1;
-}
-.fade-exit {
-  opacity: 1;
-}
-.fade-exit-active {
-  opacity: 0;
-} */
 
 .fade-appear {
   opacity: 0;
@@ -103,16 +83,16 @@ body {
 .shift-enter {
   opacity: 0;
 }
-.shift-enter-active {
+.shift-enter.shift-enter-active {
   opacity: 1;
-  transition: all 0.4s ease-in;
+  transition: all 0.6s ease-in;
 }
 .shift-exit {
   opacity: 1;
 }
-.shift-exit-active {
+.shift-exit.shift-exit-active {
   opacity: 0;
-  transition: all 0.4s ease-in;
+  transition: all 0.6s ease-in;
 }
 
 .shift-appear {

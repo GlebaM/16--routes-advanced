@@ -5,7 +5,7 @@
 }
 
 @media screen and (max-width: 600px) {
-  .main > h1 ~ div h1 {
+  .main > h1 {
     text-align: center;
   }
   @media screen and (max-width: 600px) {

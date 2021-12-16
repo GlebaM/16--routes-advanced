@@ -11,6 +11,7 @@ export async function getAllQuotes() {
   const transformedQuotes = [];
 
   for (const key in data) {
+    console.log(data[key]);
     const quoteObj = {
       id: key,
       ...data[key],

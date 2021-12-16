@@ -41,6 +41,7 @@ const QuoteDetails = () => {
 
   console.log(match.url);
   console.log(match.path);
+  console.log(quoteId);
 
   return (
     <CSSTransition in timeout={900} unmountOnExit classNames="fade" appear>

@@ -8,7 +8,6 @@ const calculateBoundingBoxes = (children) => {
     const nodeBoundingBox = domNode.getBoundingClientRect();
     boundingBoxes[child.key] = nodeBoundingBox;
   });
-  console.log(boundingBoxes);
 
   return boundingBoxes;
 };

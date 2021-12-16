@@ -48,4 +48,8 @@
   .item figure p {
     text-align: justify;
   }
+
+  .item blockquote {
+    font-size: 2rem;
+  }
 }

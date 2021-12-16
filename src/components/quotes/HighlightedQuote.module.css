@@ -10,6 +10,7 @@
 
 .quote p {
   font-size: 2.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .quote figcaption {
@@ -17,4 +18,11 @@
   font-size: 1.5rem;
   text-align: right;
   color: var(--color-primary-light-1);
+}
+
+@media only screen and (max-width: 37.5em) {
+  .quote p {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+  }
 }

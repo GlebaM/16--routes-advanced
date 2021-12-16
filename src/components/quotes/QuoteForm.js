@@ -16,8 +16,8 @@ const QuoteForm = (props) => {
 
     const enteredAuthor = authorInputRef.current.value;
     const enteredText = textInputRef.current.value;
+    //validate here
     if (!enteredAuthor.trim() || !enteredText.trim()) return;
-    // optional: Could validate here
 
     props.onAddQuote({ author: enteredAuthor, text: enteredText });
   }
@@ -34,7 +34,7 @@ const QuoteForm = (props) => {
     <Fragment>
       <Prompt
         when={isEntered}
-        message={(location) =>
+        message={() =>
           "Are you sure you want to leave this page?  All entered data will be lost!!!"
         }
       />

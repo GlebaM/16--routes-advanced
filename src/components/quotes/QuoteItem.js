@@ -4,7 +4,6 @@ import classes from "./QuoteItem.module.css";
 
 const QuoteItem = forwardRef(({ id, text, author, delay }, ref) => {
   const inputRef = ref;
-  console.log(inputRef.current);
   return (
     <li
       className={classes.item}

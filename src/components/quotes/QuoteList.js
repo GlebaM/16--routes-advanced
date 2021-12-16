@@ -18,8 +18,6 @@ const sortQuotes = (quotes, descending) => {
 
 const QuoteList = (props) => {
   console.log(props.quotes);
-
-  // const match = useRouteMatch();
   const history = useHistory();
   const location = useLocation();
 
@@ -36,8 +34,6 @@ const QuoteList = (props) => {
     });
   };
 
-  let count = 0;
-  console.log(count);
   return (
     <Fragment>
       <div className={classes.sorting}>
@@ -47,8 +43,6 @@ const QuoteList = (props) => {
       </div>
       <ul className={classes.list}>
         {sortedQuotes.map((quote) => {
-          count += 100;
-
           return (
             <AnimatedItem key={quote.id}>
               <QuoteItem

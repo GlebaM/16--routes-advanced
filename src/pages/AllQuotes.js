@@ -37,7 +37,7 @@ const AllQuotes = () => {
   return (
     <Fragment>
       <CSSTransition in timeout={600} unmountOnExit classNames="fade" appear>
-        <h1>All Quotes Page!</h1>
+        <h1>All Great Quotes!</h1>
       </CSSTransition>
       <CSSTransition in timeout={600} unmountOnExit classNames="fade" appear>
         <QuoteList quotes={loadedQuotes} />

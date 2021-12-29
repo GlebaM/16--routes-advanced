@@ -22,7 +22,7 @@ const NewQuote = () => {
   return (
     <Fragment>
       <CSSTransition in timeout={600} unmountOnExit classNames="fade" appear>
-        <h1>New Quote Page!</h1>
+        <h1>Add New Quote!</h1>
       </CSSTransition>
       <CSSTransition in timeout={600} unmountOnExit classNames="fade" appear>
         <QuoteForm

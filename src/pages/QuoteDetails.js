@@ -46,7 +46,7 @@ const QuoteDetails = () => {
   return (
     <CSSTransition in timeout={900} unmountOnExit classNames="fade" appear>
       <div>
-        <h1>Quote Details Page! </h1>
+        <h1>Great Quote Details! </h1>
         <HighlightedQuote text={loadedQuote.text} author={loadedQuote.author} />
         <Route path={`${match.url}`} exact>
           <div className="centered">
